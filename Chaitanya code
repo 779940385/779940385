@@ -1,0 +1,173 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct node{
+	char c[20];
+	struct node *link;
+}*top=NULL,*f=NULL;
+int i=0,l=100;
+void insert();
+void delet();
+void display();
+void all_delet();
+main(){
+	while(1){
+	insert();
+}
+}
+void insert(){
+	int n;
+	struct node *temp;
+	temp=(struct node*)malloc(sizeof(struct node));
+	printf("enter you wanted name");
+	printf("chaitanya\n");
+	scanf("%s",temp->c);
+	printf("your given name is inserted\n\n");
+	i++;
+	if(strcmp(temp->c,"chandu")==0){
+	    temp->link=top;
+	    top=temp;
+	    f=temp->link;
+	l=i;
+	printf("\n1.insert\n2.display\n");
+	printf("entern you choice  :");
+	scanf("%d",&n);
+	if(n==1){
+		insert();
+	}
+	else if(n==2){
+		display();
+	}
+	else{
+		printf("\ninvalid choice\n");
+	}
+	}
+	else if(i>l-1){
+	    temp->link=f;
+	    top->link=temp;
+	    f=temp;
+	printf("\n1.insert\n2.display\n");
+	printf("entern you choice  :");
+	scanf("%d",&n);
+	if(n==1){
+		insert();
+	}
+	else if(n==2){
+		display();
+	}
+	else{
+		printf("\ninvalid choice\n");
+	}
+	}
+	else{
+	    temp->link=top;
+	    top=temp;
+	    f=temp->link;
+	}
+	
+}
+void display(){
+	int n;
+	struct node *temp=top;
+	printf("chaitanya");
+	while(temp!=NULL){
+		printf("-->%s",temp->c);
+		temp=temp->link;
+	}
+	printf("\n1.insert\n2.delet\n");
+	printf("3.delet the pearsons not");
+	printf(" in ur life\n");
+	printf("enter your choice  :");
+	scanf("%d",&n);
+	if(n==1){
+		insert();
+	}
+	else if(n==2){
+		delet();
+	}
+	else if(n==3){
+		all_delet();
+	}
+	else{
+		printf("\ninvalid choice\n");
+	}
+	}
+
+void delet(){
+	struct node *temp=top,*d;
+	if(strcmp(temp->c,"chandu")==0){
+		if(temp->link==NULL){
+printf("i cant delet %s from your life\n",temp->c);
+		}
+		else{
+		    d=temp->link;
+		    temp->link=f->link;
+		    f=temp->link;
+		int i,l=3;
+	printf("\ndeleting the short life pearson");
+	printf("in your life\n");
+	while(l>0){
+		for(i=0;i<10000;i++){
+			
+		}
+		printf(".  ");
+		l--;
+	}
+	printf("\n%s is deleted\n",d->c);
+		}
+	}
+	int n;
+	printf("\n1.insert\n2.delet\n");
+	printf("3.delet the pearsons not");
+	printf(" in ur life\n");
+	printf("4.display\n");
+	printf("enter your choice  :");
+	scanf("%d",&n);
+	if(n==1){
+		insert();
+	}
+	else if(n==2){
+		delet();
+	}
+	else if(n==3){
+		all_delet();
+	}
+	else if(n==4){
+	    display();
+	}
+	else{
+	printf("\ninvalid choice\n");
+	printf("\n1.insert\n2.delet\n");
+	printf("3.delet the pearsons not");
+	printf(" in ur life\n");
+	printf("4.display\n");
+	printf("enter your choice  :");
+	scanf("%d",&n);
+	if(n==1){
+		insert();
+	}
+	else if(n==2){
+		delet();
+	}
+	else if(n==3){
+		all_delet();
+	}
+	else{
+	    display();
+	}
+	}
+}
+	
+
+
+void all_delet()
+{
+    struct node *temp=top;
+    while(temp->link==NULL){
+        temp=temp->link;
+    }
+    printf("%s",top->c);
+	printf(" is long life pearson in ur life chaitu");
+	printf("\n\t\t\t\tthe end");
+	exit(0);
+}
